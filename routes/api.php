@@ -10,14 +10,12 @@ Route::get('/test', function () {
     return response()->json(['message' => 'API Works!']);
 });
 
-// Surat Masuk Routes
-// PENTING: Route dengan path spesifik harus di atas route dengan parameter dinamis
+
 Route::get('surat-masuk', [SuratMasukController::class, 'index']);
 Route::get('surat-masuk/nomor-terbaru', [SuratMasukController::class, 'nomorTerbaru']);
 Route::post('surat-masuk', [SuratMasukController::class, 'store']);
 Route::get('surat-masuk/{id}', [SuratMasukController::class, 'show']);
 
-// Support both PUT and POST with _method override
 Route::put('surat-masuk/{id}', [SuratMasukController::class, 'update']);
 Route::post('surat-masuk/{id}', [SuratMasukController::class, 'update']);
 
